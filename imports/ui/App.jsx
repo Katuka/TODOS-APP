@@ -55,37 +55,39 @@ class App extends Component {
 
     render() {
         return (
-            <div className="container">
-                <header>
-                    <h1>Todo List</h1>
-                    <span>
-                        <label htmlFor="check">
-                            <input type="checkbox"
-                                readOnly
-                                checked={this.state.hideCompleted}
-                                onClick={this.toggleHideCompleted}
-                                id="check"
-                            />
-                            Hide Completed Tasks
-                        </label>
+            <div id="boxshadow">
+                <div className="container">
+                    <header>
+                        <h1>Todo List</h1>
+                        <span>
+                            <label htmlFor="check">
+                                <input type="checkbox"
+                                    readOnly
+                                    checked={this.state.hideCompleted}
+                                    onClick={this.toggleHideCompleted}
+                                    id="check"
+                                />
+                                Hide Completed Tasks
+                            </label>
 
-                        {/* ACCOUNTS COMPONENT */}
-                        <AccountsUIWrapper />
-                    </span> <br/>
-                    <small>You have now ({this.props.incompleteCount}) incomplete tasks.</small>
+                            {/* ACCOUNTS COMPONENT */}
+                            <AccountsUIWrapper />
+                        </span> <br/>
+                        <small>You have now ({this.props.incompleteCount}) incomplete tasks.</small>
 
-                    { this.props.currentUser ? 
-                        <form className="new-tast" onSubmit={this.handleSubmit}>
-                        <input type="text"
-                        ref="textInput"
-                        placeholder="Enter a new task..."/>
-                        </form> : ''
-                    }
-                </header>
+                        { this.props.currentUser ? 
+                            <form className="new-tast" onSubmit={this.handleSubmit}>
+                            <input type="text"
+                            ref="textInput"
+                            placeholder="Enter a new task..."/>
+                            </form> : ''
+                        }
+                    </header>
 
-                <ul>
-                    {this.renderTasks()}
-                </ul>
+                    <ul>
+                        {this.renderTasks()}
+                    </ul>
+                </div>
             </div>
         );
     }
